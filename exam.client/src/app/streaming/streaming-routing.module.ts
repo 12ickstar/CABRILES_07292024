@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { StreamingComponent } from './streaming.component';
+import { StreamingComponent } from './StreamingComponent';
 
 const routes: Routes = [{ path: '', component: StreamingComponent }];
 

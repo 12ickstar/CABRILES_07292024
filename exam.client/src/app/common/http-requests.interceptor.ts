@@ -7,7 +7,7 @@ export class AppHttpInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
     let modifiedRequest = request.clone({
-      url: `${environment.baseApiUrl}/${request.url}`
+      url: `${environment.apiUrl}api/${request.url}`
     });
     if (!(request.body instanceof FormData)) {
       modifiedRequest = modifiedRequest.clone({

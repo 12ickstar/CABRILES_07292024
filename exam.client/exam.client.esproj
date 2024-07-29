@@ -10,5 +10,7 @@
   <ItemGroup>
     <Folder Include="environments\" />
     <Folder Include="src\app\common\" />
+    <Folder Include="src\app\shared\models\" />
+    <Folder Include="src\app\upload\models\" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StreamingComponent } from './streaming.component';
+import { StreamingComponent } from './StreamingComponent';
 
 describe('StreamingComponent', () => {
   let component: StreamingComponent;
