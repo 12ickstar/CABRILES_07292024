@@ -1,6 +1,6 @@
-# @Exam.Server_HostAddress = http://localhost:5189
+@Exam.Server_HostAddress = http://localhost:5189
 
-# GET {{Exam.Server_HostAddress}}/weatherforecast/
-# Accept: application/json
+GET {{Exam.Server_HostAddress}}/weatherforecast/
+Accept: application/json
 
-# ###
+###

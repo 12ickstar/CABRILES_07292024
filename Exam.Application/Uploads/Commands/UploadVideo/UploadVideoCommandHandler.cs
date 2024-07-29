@@ -15,15 +15,21 @@ namespace Exam.Application.Uploads.Commands.UploadVideo
 
         public async Task<Unit> Handle(UploadVideoCommand request, CancellationToken cancellationToken)
         {
-            await _context.Uploads.AddAsync(new Upload
+            using (var stream = new FileStream(request.FilePath, FileMode.Create))
+            {
+                await request.Video.CopyToAsync(stream, cancellationToken);
+            }
+
+            var upload = new Upload
             {
                 Title = request.Title,
                 Description = request.Description,
                 Categories = request.Categories,
-                VideoFilePath = request.VideoFilePath
-            });
+                VideoFilePath = request.FilePath
+            };
 
-            await _context.SaveChangesAsync();
+            await _context.Uploads.AddAsync(upload, cancellationToken);
+            await _context.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
         }

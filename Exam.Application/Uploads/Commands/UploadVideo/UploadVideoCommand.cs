@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 
 namespace Exam.Application.Uploads.Commands.UploadVideo
 {
@@ -7,6 +8,7 @@ namespace Exam.Application.Uploads.Commands.UploadVideo
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string Categories { get; set; } = string.Empty;
-        public string VideoFilePath { get; set; } = string.Empty;
+        public IFormFile Video { get; set; } = null!;
+        public string FilePath { get; set; } = string.Empty;
     }
 }

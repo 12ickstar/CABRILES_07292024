@@ -1,4 +1,5 @@
 <h2>Upload Page</h2>
+
 <form (ngSubmit)="onSubmit()" [formGroup]="uploadForm" enctype="multipart/form-data">
   <div class="mb-3">
     <label for="title" class="form-label">Title</label>
@@ -19,5 +20,10 @@
     <label for="video" class="form-label">Video File</label>
     <input type="file" id="video" class="form-control" (change)="onFileChange($event)" accept=".mp4,.avi,.mov" required>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="!uploadForm.valid || !selectedFile">Upload</button>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!uploadForm.valid || !selectedFile || isUploading">
+    <span *ngIf="isUploading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+    {{ isUploading ? 'Uploading...' : 'Upload' }}
+  </button>
+
 </form>

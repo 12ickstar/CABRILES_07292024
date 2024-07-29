@@ -18,9 +18,9 @@ namespace Exam.Application.Uploads.Commands.UploadVideo
                 .NotEmpty().WithMessage("Categories are required.")
                 .MaximumLength(100).WithMessage("Categories must not exceed 100 characters.");
 
-            RuleFor(x => x.VideoFilePath)
-                .NotEmpty().WithMessage("Video file path is required.")
-                .MaximumLength(500).WithMessage("Video file path must not exceed 500 characters.");
+            RuleFor(x => x.FilePath)
+                .NotEmpty().WithMessage("File path is required.")
+                .MaximumLength(500).WithMessage("File path must not exceed 500 characters.");
         }
     }
 }

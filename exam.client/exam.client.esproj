@@ -7,4 +7,8 @@
     <!-- Folder where production build objects will be placed -->
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\exam.client\</BuildOutputFolder>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="environments\" />
+    <Folder Include="src\app\common\" />
+  </ItemGroup>
 </Project>
