@@ -31,6 +31,7 @@ namespace Exam.Application.Common.Behaviors
                 if (failures.Any())
                     throw new Exceptions.ValidationException(failures);
             }
+
             return await next();
         }
     }

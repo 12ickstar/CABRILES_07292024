@@ -1,8 +1,9 @@
-﻿namespace Exam.Domain.Entities
+﻿using MediatR;
+
+namespace Exam.Application.Uploads.Commands.UploadVideo
 {
-    public class Upload
+    public class UploadVideoCommand : IRequest
     {
-        public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string Categories { get; set; } = string.Empty;
