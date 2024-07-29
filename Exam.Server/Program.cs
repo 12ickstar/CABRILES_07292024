@@ -1,9 +1,12 @@
+using Exam.Application;
 using Exam.Infrastructure;
 using Exam.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
