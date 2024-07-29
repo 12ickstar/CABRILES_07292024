@@ -17,9 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Exam.Application\Exam.Application.csproj" />
     <ProjectReference Include="..\exam.client\exam.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\Exam.Infrastructure\Exam.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
