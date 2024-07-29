@@ -14,7 +14,7 @@ import { environment } from '../../../environments/environment';
 export class StreamingComponent implements OnInit, OnDestroy {
 
   private unsubscribe$ = new Subject<void>();
-  upload: Upload = UPLOAD_DEFAULT;
+  upload: Upload | null = null;
   apiUrl: string = environment.apiUrl;
   videoUrl: string = '';
 
