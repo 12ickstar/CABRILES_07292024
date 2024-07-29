@@ -1,6 +1,7 @@
 using Exam.Application;
 using Exam.Infrastructure;
 using Exam.Infrastructure.Persistence;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +26,13 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 app.UseDefaultFiles();
-app.UseStaticFiles();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "uploads")),
+    RequestPath = "/uploads"
+});
 
 if (app.Environment.IsDevelopment())
 {
