@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subject, finalize, takeUntil, tap } from 'rxjs';
+import { Subject, catchError, finalize, takeUntil, tap } from 'rxjs';
 import { UploadVideoResponse } from './models/upload.models';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -62,6 +62,10 @@ export class UploadComponent implements OnInit, OnDestroy {
             this.router.navigate(['/streaming'], { queryParams: { id: response.id } });
             this.toastr.success('Upload successful!', 'Success');
           }), 
+          catchError((error: HttpErrorResponse) => {
+            this.toastr.error('An error occurred during the upload. Please try again.', 'Error');
+            throw error;
+          }),
           finalize(() => {
             this.isUploading = false;
           }),
