@@ -4,3 +4,10 @@
   justify-content: flex-start;
   gap: 10px;
 }
+
+.no-videos {
+  text-align: center;
+  font-size: 1.5em;
+  color: #666;
+  margin-top: 20px;
+}

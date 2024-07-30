@@ -1,3 +1,7 @@
-<div class="video-list">
+<div *ngIf="uploadList.total === 0" class="no-videos">
+  No videos available.
+</div>
+
+<div class="video-list" *ngIf="uploadList.total > 0">
   <app-video-thumbnail *ngFor="let upload of uploadList.list" [upload]="upload"></app-video-thumbnail>
 </div>

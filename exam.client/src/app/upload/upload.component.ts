@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject, finalize, takeUntil, tap } from 'rxjs';
 import { UploadVideoResponse } from './models/upload.models';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-upload',
@@ -12,13 +13,18 @@ import { Router } from '@angular/router';
 })
 export class UploadComponent implements OnInit, OnDestroy {
 
+  @ViewChild('uploadToast') uploadToast!: ElementRef;
   private unsubscribe$ = new Subject<void>();
 
   uploadForm: FormGroup;
   categories: string[] = ['Music', 'Education', 'Comedy', 'Sports', 'News'];
   selectedFile: File | null = null;
   isUploading = false;
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router,
+    private toastr: ToastrService) {
     this.uploadForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -54,6 +60,7 @@ export class UploadComponent implements OnInit, OnDestroy {
         .pipe(
           tap((response: UploadVideoResponse) => {
             this.router.navigate(['/streaming'], { queryParams: { id: response.id } });
+            this.toastr.success('Upload successful!', 'Success');
           }), 
           finalize(() => {
             this.isUploading = false;
