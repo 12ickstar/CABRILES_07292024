@@ -1,0 +1,13 @@
+.video-thumbnail {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  width: 220px;
+  text-align: center;
+}
+
+  .video-thumbnail video {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+  }

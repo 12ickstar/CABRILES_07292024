@@ -10,6 +10,9 @@
   <ItemGroup>
     <Folder Include="environments\" />
     <Folder Include="src\app\common\" />
+    <Folder Include="src\app\home\components\" />
+    <Folder Include="src\app\home\models\" />
+    <Folder Include="src\app\home\constants\" />
     <Folder Include="src\app\shared\models\" />
     <Folder Include="src\app\upload\models\" />
   </ItemGroup>
