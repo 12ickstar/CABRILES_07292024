@@ -31,6 +31,8 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.UseMiddleware<ApiKeyMiddleware>();
+
 app.UseDefaultFiles();
 
 app.UseStaticFiles(new StaticFileOptions

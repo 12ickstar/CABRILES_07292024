@@ -6,16 +6,16 @@ import { environment } from '../../../environments/environment';
 export class AppHttpInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
-    let modifiedRequest = request.clone({
-      url: `${environment.apiUrl}api/${request.url}`
-    });
+    let headers = request.headers.set('X-Api-Key', environment.apiKey);
+
     if (!(request.body instanceof FormData)) {
-      modifiedRequest = modifiedRequest.clone({
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-        })
-      });
+      headers = headers.set('Content-Type', 'application/json');
     }
+
+    const modifiedRequest = request.clone({
+      url: `${environment.apiUrl}api/${request.url}`,
+      headers
+    });
 
     return next.handle(modifiedRequest);
   }
