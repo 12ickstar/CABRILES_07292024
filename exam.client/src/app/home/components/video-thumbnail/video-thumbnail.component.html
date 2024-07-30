@@ -1,0 +1,4 @@
+<div class="video-thumbnail" [title]="upload.title">
+  <video [src]="apiUrl + upload.videoFilePath" width="256" height="256" (click)="navigateToStream()"></video>
+  <p class="fs-8 text-muted">{{upload.description}}</p>
+</div>
