@@ -16,7 +16,9 @@
             return;
         }
 
-        if (context.Request.Path.StartsWithSegments("/swagger") ||
+        if (
+            context.Request.Path.StartsWithSegments("/uploads") || 
+            context.Request.Path.StartsWithSegments("/swagger") ||
             context.Request.Path.StartsWithSegments("/api-docs"))
         {
             await _next(context);
