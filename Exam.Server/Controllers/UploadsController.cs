@@ -1,5 +1,6 @@
 ﻿using Exam.Application.Common.Exceptions;
 using Exam.Application.Uploads.Commands.UploadVideo;
+using Exam.Application.Uploads.Queries.GetAllUploads;
 using Exam.Application.Uploads.Queries.GetUploadById;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +34,21 @@ namespace Exam.Server.Controllers
             {
                 Id = response
             });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            try
+            {
+                var result = await Mediator.Send(new GetAllUploadsQuery());
+
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+                return BadRequest(500);
+            }
         }
 
         [HttpGet("{id:int}")]
