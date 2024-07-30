@@ -19,6 +19,10 @@ namespace Exam.Infrastructure.Persistence.Configurations
                 .IsRequired()
                 .HasMaxLength(200);
 
+            builder.Property(u => u.Description)
+                .IsRequired()
+                .HasMaxLength(160);
+
             builder.Property(u => u.Categories)
                 .IsRequired()
                 .HasMaxLength(100);
