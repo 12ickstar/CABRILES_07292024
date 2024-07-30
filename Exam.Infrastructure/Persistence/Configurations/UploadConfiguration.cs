@@ -30,6 +30,9 @@ namespace Exam.Infrastructure.Persistence.Configurations
             builder.Property(u => u.VideoFilePath)
                 .IsRequired()
                 .HasMaxLength(500);
+
+            builder.HasIndex(u => u.Categories)
+                .IsUnique();
         }
     }
 }
