@@ -1,6 +1,3 @@
-# CABRILES_07292024
-
-
 # ASP.NET + Angular Application
 
 This project is a template-based application created using Visual Studio. It includes an ASP.NET Core backend and an Angular frontend. The project follows the N-Layer/Onion architecture and incorporates several modern development patterns and tools such as AutoMapper, FluentValidation, CQRS Pattern, and Entity Framework.
@@ -26,11 +23,11 @@ Ensure you have the following installed on your machine:
 
 ## Getting Started
 
-### Backend Setup
+### Build and Run the Application
 
-1. **Navigate to the Backend Directory**:
+1. **Navigate to the Server Project Directory**:
     ```bash
-    cd path/to/backend
+    cd path/to/Exam.Server
     ```
 
 2. **Restore Dependencies**:
@@ -38,53 +35,17 @@ Ensure you have the following installed on your machine:
     dotnet restore
     ```
 
-3. **Build the Backend**:
+3. **Build the Project**:
     ```bash
     dotnet build
     ```
 
-4. **Run the Backend**:
+4. **Run the Application**:
     ```bash
     dotnet run
     ```
 
-### Frontend Setup
-
-1. **Navigate to the Frontend Directory**:
-    ```bash
-    cd path/to/frontend
-    ```
-
-2. **Install Dependencies**:
-    ```bash
-    npm install
-    ```
-
-3. **Build the Frontend**:
-    ```bash
-    ng build
-    ```
-
-4. **Run the Frontend**:
-    ```bash
-    ng serve
-    ```
-
-### Running the Full Application
-
-1. **Ensure the Backend is Running**:
-    ```bash
-    cd path/to/backend
-    dotnet run
-    ```
-
-2. **Ensure the Frontend is Running**:
-    ```bash
-    cd path/to/frontend
-    ng serve
-    ```
-
-3. **Open Your Browser** and navigate to `http://localhost:4200`.
+5. **Open Your Browser** and navigate to `http://localhost:5000` or the URL provided in the console output.
 
 ### Testing the Application
 
@@ -92,7 +53,7 @@ Ensure you have the following installed on your machine:
 
 1. **Navigate to the Backend Test Project**:
     ```bash
-    cd path/to/backend/tests
+    cd path/to/Exam.Application.UnitTest
     ```
 
 2. **Run the Tests**:
@@ -104,7 +65,7 @@ Ensure you have the following installed on your machine:
 
 1. **Navigate to the Frontend Directory**:
     ```bash
-    cd path/to/frontend
+    cd path/to/exam.client
     ```
 
 2. **Run the Tests**:
